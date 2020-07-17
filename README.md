@@ -1,21 +1,24 @@
-### Build a blockchain based Geo Guessing Scavenger Hunt game in 5 minutes
+# Build a blockchain based Geo Guessing Scavenger Hunt game in 5 minutes
 
 In this simple tutorial you'll create a geographic guessing game. In reality you'll be creating your own blockchain and token using the Cosmos SDK! 
 
-## Prerequisites
+### Prerequisites
 
 - Have [Go installed](https://golang.org/doc/install)
 
 
-## Lets's Configure our app
+
+### Lets's Configure our app
 
 - Fork and clone this repository
 
 - Navigate to the ```scavenge-tutorial```  folder in your terminal 
 
+- Run ```make``` inside the folder
+
 - From this directory run the initialization script
 
-``` bash init.sh```
+``` ./init.sh```
 
 
 ## Fire up your blockchain
@@ -42,7 +45,7 @@ I[2020-07-16|12:53:52.508] Committed state                              module=s
 
 Now you can switch into the first terminal window where you should be in the route directory of your application. Let's create a Geo Scavenger Hunt! 
 
-Using the command below you are telling the ```scavengeCLI``` tool that you want to create a transaction on the ```scavengeHunt``` blockchain (the one you have running in another terminal window). You're then calling the ```createScavenge`` function and passing three parameters. Finanlly you're adding a flag to denote which user is creating this transaction:
+Using the command below you are telling the ```scavengeCLI``` tool that you want to create a transaction on the ```scavengeHunt``` blockchain (the one you have running in another terminal window). You're then calling the ```createScavenge``` function and passing three parameters. Finanlly you're adding a flag to denote which user is creating this transaction:
 
 - ```69foo``` is the amount of "foo" token you want to offer as a bounty for this scavenger hunt
 - ```"93001"``` is the correct solution for this Scavenger Hunt
@@ -51,6 +54,8 @@ Using the command below you are telling the ```scavengeCLI``` tool that you want
 
 ## Create the Hunt
 Now that you understand what it means, copy and past this command into your terminal window:
+
+
 ```scavengeCLI tx scavengeHunt createScavenge 69foo "93001" "This zip code contains the Mission San Buenaventura as well as two of Californias Channel islands" --from me```
 
 You should receive some confirmation message that looks like this:
@@ -89,17 +94,27 @@ Finanlly you're adding a flag to denote which user is creating this transaction,
 
 ## Post your solution 
 Now that you understand what it means, copy and past this command into your terminal window:
+
+
 ```scavengeCLI tx scavengeHunt commitSolution "93001" --from you ```
 
 ## Confirm "you" are correct
 Copy this command to reveal the solution and cofirm "you" are the winner:
+
+
 ```scavengeCLI tx scavengeHunt revealSolution "93001" --from you```
 
 ## Reap your sweet reward
 You initially posted a reward of 69foo tokens when this Hunt was posted. The user "you" was initiated with a balance of 1foo, confirm they now have a balance of 70foo buy copying and pasting this command into your terminal:
+
+
+
 ```scavengeCLI q account $(scavengeCLI keys show you -a)```
 
-You should see an output similar to this
+
+
+
+You should see an output similar to this:
             ``` 
              {
                 "type": "cosmos-sdk/Account",
